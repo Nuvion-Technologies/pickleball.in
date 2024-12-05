@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Playball:regular);
+@import url(https://fonts.googleapis.com/css?family=Bangers:regular);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.overlay img {
+    position: absolute;
+    bottom: -300px; /* Position the image slightly above the bottom */
+    right: -300px; /* Position the image slightly away from the right */
+    width: 1200px; /* Set a width for the image */
+    height: 1200px; /* Maintain aspect ratio or adjust height */
+    object-fit: cover;
+    animation: spin 50s infinite linear; /* Smooth spinning animation */
+    filter: drop-shadow(0 0 50px rgba(0, 0, 0, 0.3)); /* Add a shadow to the image */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    font-family: 'Bangers', cursive;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff6a6ad8, #FFD56Bd8, #FF914Dd8, #FF3CACd8);
+    background-size: 400% 400%;
+    animation: hotGradientMove 8s ease infinite;
+}
+
+/* Animation for the gradient background */
+@keyframes hotGradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 80% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container for the layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    height: 80%;
+    overflow: hidden;
+}
+
+/* Left Section: Text Content */
+.text-section {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-section h1 {
+    font-size: 3rem;
+    font-family: 'Bangers', cursive;
+    color: #FF5733;
+    margin-bottom: 20px;
+}
+
+.text-section h2 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+h2 span {
+    font-family: 'Playball', cursive !important;
+}
+
+.text-section p {
+    font-size: 1.2rem;
+    color: #555;
+    width: 70%;
+    line-height: 1.5;
+}
+
+/* Tablet View: Hide the Overlay */
+@media (max-width: 1024px) {
+    .overlay {
+        display: none;
+    }
+    .text-section p {
+        width: 100%; /* Allow description to take the full width */
+    }
+}
+
+/* Mobile View: Adjust text size and layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-section {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .text-section h1 {
+        font-size: 2rem;
+    }
+
+    .text-section h2 {
+        font-size: 3rem;
+    }
+
+    .text-section p {
+        font-size: 1rem;
+        width: 100%;
+    }
+}
